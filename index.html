@@ -71,7 +71,7 @@
 				croppie_div.croppie('result', {
 					type: 'base64',
 					format: 'jpeg',
-					size: { width: 500, height: 500 }
+					size: { width: 1000, height: 1000 }
 				}).then(function (resp) {
 					var canvas = document.getElementById('canvas');
 					var context = canvas.getContext("2d");
@@ -82,8 +82,8 @@
 						var image2 = new Image();
 						image2.src = twibbonurl;
 
-						var maxwidth = 500;
-						var maxheight = 500;
+						var maxwidth = 1000;
+						var maxheight = 1000;
 						var ratio = 0;
 						var width = image2.width;
 						var height = image2.height;
@@ -211,10 +211,10 @@
 							<div class="modal-dialog modal-lg" role="document">
 								<div class="modal-content">
 									<div class="modal-body text-center">
-										<canvas id="canvas" width="500" height="500" style="display:none;">
+										<canvas id="canvas" width="1000" height="1000" style="display:none;">
 										</canvas>
-										<img src="#" id="imagepreview" class="img-fluid"
-											alt="Twibbon Result sabrisangjaya" />
+										<img src="#" id="imagepreview" class="img-fluid" alt="Twibbon Result"
+											style="max-width: 300px;" />
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-success downloadimage"><span
