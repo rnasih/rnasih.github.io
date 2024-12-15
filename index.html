@@ -145,6 +145,10 @@
 		});
 	</script>
 	<style>
+		body {
+			background-color: #000;
+		}
+
 		#twibbon {
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -177,9 +181,9 @@
 <body>
 	<div class="container">
 		<br />
-		<div class="row">
-			<div class="col-md-6 col-sm-12 col-xs-12">
-				<div class="card">
+		<div class="row  justify-content-md-center">
+			<div class="col-md-6">
+				<div class="card mb-2">
 					<div class="card-body">
 						<div id="twibbon">
 							<div class="overlay"></div>
@@ -195,14 +199,13 @@
 							<label for="fileinput" class="btn btn-primary" style="margin:0"><span
 									class="fa fa-upload"></span> Upload Foto</label>
 							<button class="generatetwibbon btn btn-primary" data-toggle="modal"
-								data-target="#modal"><span class="fa fa-gear"></span> Buat</button><br /><br />
+								data-target="#modal"><span class="fa fa-gear"></span> Buat</button>
 							<!-- <input id="filetwibbon" type="file" accept="image/png" style="display: none" /><label
 								for="filetwibbon" class="btn btn-primary" style="margin:0"><span
 									class="fa fa-upload"></span> Ganti Frame</label><br /><br /> -->
 
 
 						</div>
-						<br /><br />
 						<div class="modal fade" id="modal" tabindex="-1" role="dialog"
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-lg" role="document">
@@ -223,40 +226,41 @@
 							</div>
 						</div>
 
+						<div class="card mt-4">
+							<div class="card-body">
+								<div class="form-group">
+									<label for="name">Caption</label>
+									<textarea name="caption" id="caption" class="form-control"
+										rows="5">Saya bangga menunjukkan dukungan saya untuk kampanye ini! Pound adalah langkah nyata untuk menciptakan perubahan positif dalam masyarakat kita.</textarea>
+								</div>
+								<button id="tooltipcopy" data-toggle="tooltip" data-placement="right"
+									class="btn btn-sm btn-secondary" style="margin-bottom: 5px;"><span
+										class="fa fa-copy"></span> copy to clipboard</button>
+
+								<script>
+									$(document).ready(function () {
+										$("#caption").click(function () {
+											this.select();
+											document.execCommand("copy");
+										});
+										$("#tooltipcopy").tooltip({ trigger: 'click', delay: { "show": 500, "hide": 200 } });
+										$("#tooltipcopy").click(function () {
+											$("#caption").select();
+											document.execCommand("copy");
+											$("#tooltipcopy").attr('data-original-title', 'copied!').tooltip('show');
+										});
+										$("#tooltipcopy").mouseout(function () {
+											$("#tooltipcopy").tooltip('hide');
+										});
+
+									});
+								</script>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-6 col-sm-12">
-				<div class="card">
-					<div class="card-body">
-						<div class="form-group">
-							<label for="name">Caption</label>
-							<textarea name="caption" id="caption" class="form-control"
-								rows="5">Saya bangga menunjukkan dukungan saya untuk kampanye ini! Pound adalah langkah nyata untuk menciptakan perubahan positif dalam masyarakat kita.</textarea>
-						</div>
-						<button id="tooltipcopy" data-toggle="tooltip" data-placement="right"
-							class="btn btn-sm btn-secondary" style="margin-bottom: 5px;"><span
-								class="fa fa-copy"></span> copy to clipboard</button>
-
-						<script>
-							$(document).ready(function () {
-								$("#caption").click(function () {
-									this.select();
-									document.execCommand("copy");
-								});
-								$("#tooltipcopy").tooltip({ trigger: 'click', delay: { "show": 500, "hide": 200 } });
-								$("#tooltipcopy").click(function () {
-									$("#caption").select();
-									document.execCommand("copy");
-									$("#tooltipcopy").attr('data-original-title', 'copied!').tooltip('show');
-								});
-								$("#tooltipcopy").mouseout(function () {
-									$("#tooltipcopy").tooltip('hide');
-								});
-
-							});
-						</script>
-					</div>
+				<div class="text-center text-white">
+					developed by <a href="http://aidilweb.github.io/" target="_blank">aidilweb</a>
 				</div>
 			</div>
 		</div>
